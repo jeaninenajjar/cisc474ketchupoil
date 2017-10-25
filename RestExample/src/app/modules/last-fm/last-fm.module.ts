@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 export function lastFMfactory(http: Http){
-  return new LastFmService(http, 'https://ws.audioscrobbler.com/2.0');
+  return new LastFmService(http, 'https://pokeapi.co/api/v2/');
 }
 
 @NgModule({

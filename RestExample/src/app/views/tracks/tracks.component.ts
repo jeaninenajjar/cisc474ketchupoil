@@ -13,7 +13,7 @@ export class TracksComponent implements OnInit {
   attributes: any[] = [ ];
   selectedTrack = -1;
   constructor(private _apiSvc: LastFmService, private _dialogService: DialogService) {
-    _apiSvc.getTracks(1).subscribe(x => {
+    _apiSvc.getPokemon().subscribe(x => {
       this.tracks = x.tracks.track;
       this.attributes = x.tracks['@attr'];
      });

@@ -8,16 +8,20 @@ import {ArtistPopupComponent} from './artist-popup/artist-popup.component';
   templateUrl: './artists.component.html',
   styleUrls: ['./artists.component.css']
 })
+
+
 export class ArtistsComponent {
   artists: any[] = [ ];
-  attributes: any[] = [ ];
+  //attributes: any[] = [ ];
   constructor(private _apiSvc: LastFmService, private _dialogService: DialogService) {
-    _apiSvc.getArtists(1).subscribe(x => {
-      this.artists = x.artists.artist;
-      this.attributes = x.artists['@attr'];
+    _apiSvc.getPokemon().subscribe(x => {
+      this.artists = x.results;
+      //this.attributes = x.artists['@attr'];
      });
   }
 
+
+  /*
   showDetail(index, artist) {
     console.log(index);
     console.log(artist.name);
@@ -32,4 +36,6 @@ export class ArtistsComponent {
                       disposable.unsubscribe();
                   }, 10000);
   }
+*/
+
 }
