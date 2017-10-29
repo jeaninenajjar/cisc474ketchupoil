@@ -19,7 +19,8 @@ export class ArtistsComponent {
       this.artists = x.results;
       for (let artist of this.artists) {
         _apiSvc.getPokemonDetails(artist.url).subscribe(y => {
-          this.pokemon = this.pokemon.concat(y.results);
+          this.pokemon = this.pokemon.concat(y.sprites);
+          console.log(y.sprites);
         });
       }
       //this.attributes = x.artists['@attr'];
