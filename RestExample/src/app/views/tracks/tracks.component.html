@@ -1,17 +1,19 @@
 <div>
-  <h2>Top 100 Pokemon</h2>
+  <h2>Berries!</h2>
   <div class="container-fluid">
     <table class="table table-responsive">
       <thead>
-        <th>Position</th><th>Track</th><th>Artist</th>
+        <th>Position</th><th>Track</th>
     </thead>
     <tbody>
     <template ngFor let-track [ngForOf]="tracks" let-index="index">
     <tr  (click)='showDetail(index,track)' class="clickable" >
       <td>
-    {{index+1}}</td><td> {{track.name}}</td><td>{{track.artist.name}}</td>
+    {{index+1}}</td><td> {{track.name}}</td>
     </tr>
+    <!--
     <tr>
+      
       <td colspan=3 class='detail' [hidden]='index!=selectedTrack'>
         <div class="container-fluid">
         <div class='col-md-3'>
@@ -25,7 +27,9 @@
         </div>
       </div>
       </td>
+    
     </tr>
+    -->
   </template>
 </tbody>
 </table>

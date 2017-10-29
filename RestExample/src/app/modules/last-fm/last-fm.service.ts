@@ -23,6 +23,16 @@ export class LastFmService {
         
       })
 
+      
+    getBerries = () => this.http.get(
+      this.baseUri + "berry/" + "?limit=1000",
+        { headers: this.headers }).map(x => {
+          console.log(x.json());
+          return x.json();
+            
+        })
+        
+
 /*
   getArtists = (page: number) => this.http.get(
     this.baseUri + '/?method=chart.gettopartists&api_key=119e39cb330a0f59c3f1616150e3e8f0&format=json&limit=' +

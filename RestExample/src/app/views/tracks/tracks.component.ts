@@ -10,15 +10,16 @@ import { Component, OnInit } from '@angular/core';
 export class TracksComponent implements OnInit {
 
   tracks: any[] = [ ];
-  attributes: any[] = [ ];
+  //attributes: any[] = [ ];
   selectedTrack = -1;
   constructor(private _apiSvc: LastFmService, private _dialogService: DialogService) {
-    _apiSvc.getPokemon().subscribe(x => {
-      this.tracks = x.tracks.track;
-      this.attributes = x.tracks['@attr'];
+    _apiSvc.getBerries().subscribe(x => {
+      this.tracks = x.results;
+      //this.attributes = x.tracks['@attr'];
      });
   }
 
+  /*
   showDetail(index, track) {
     console.log(index);
     console.log(track.name);
@@ -28,6 +29,7 @@ export class TracksComponent implements OnInit {
       this.selectedTrack = index;
     }
   }
+  */
     ngOnInit() {
   }
 
