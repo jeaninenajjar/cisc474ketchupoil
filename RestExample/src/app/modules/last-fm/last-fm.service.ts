@@ -16,13 +16,21 @@ export class LastFmService {
   }
 
   getPokemon = () => this.http.get(
-    this.baseUri + "pokemon/" + "?limit=100",
+    this.baseUri + "pokemon/" + "?limit=20",
       { headers: this.headers }).map(x => {
         console.log(x.json());
         return x.json();
         
       })
 
+
+      getPokemonDetails = (link: string) => this.http.get(
+        link + "?limit=20",
+          { headers: this.headers }).map(x => {
+            console.log(x.json());
+            return x.json();
+            
+          })
       
     getBerries = () => this.http.get(
       this.baseUri + "berry/" + "?limit=1000",

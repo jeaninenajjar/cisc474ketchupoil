@@ -6,7 +6,7 @@ table th{
 
 
 .clickable:hover{
-    background:aqua;
+    background:red;
     cursor: pointer;
 }
 .detail div{

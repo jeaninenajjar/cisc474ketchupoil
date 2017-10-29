@@ -12,10 +12,16 @@ import {ArtistPopupComponent} from './artist-popup/artist-popup.component';
 
 export class ArtistsComponent {
   artists: any[] = [ ];
+  pokemon: any[] = [ ];
   //attributes: any[] = [ ];
   constructor(private _apiSvc: LastFmService, private _dialogService: DialogService) {
     _apiSvc.getPokemon().subscribe(x => {
       this.artists = x.results;
+      for (let artist of this.artists) {
+        _apiSvc.getPokemonDetails(artist.url).subscribe(y => {
+          this.pokemon = this.pokemon.concat(y.results);
+        });
+      }
       //this.attributes = x.artists['@attr'];
      });
   }

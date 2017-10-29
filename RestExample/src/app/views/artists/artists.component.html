@@ -3,11 +3,11 @@
 <div class="container-fluid">
 <table class='table-responsive table'>
   <thead>
-  <th>Position</th><th>Artist</th>
+  <th>Number</th><th>Pokemon</th><th>Sprite</th>
 </thead>
-  <tr *ngFor="let artist of artists;let i=index" (click)='showDetail(i,artist)' class="clickable" >
+  <tr *ngFor="let artist of artists; let poke of pokemon; let i=index" (click)='showDetail(i,artist)' class="clickable" >
     <td>
-  {{i+1}}</td><td> {{artist.name}}</td>
+  {{i+1}}</td><td> {{artist.name}}</td><td> {{poke.is_default}}</td>
   </tr>
 </table>
 </div>
