@@ -8,23 +8,48 @@ import {ArtistPopupComponent} from './artist-popup/artist-popup.component';
   templateUrl: './artists.component.html',
   styleUrls: ['./artists.component.css']
 })
-
+   
 
 export class ArtistsComponent {
-  artists: any[] = [ ];
+  numLoaded: number = 100;
+  artists = Array<number>();
+  pokeName = String;
   pokemon: any[] = [ ];
   //attributes: any[] = [ ];
   constructor(private _apiSvc: LastFmService, private _dialogService: DialogService) {
-    _apiSvc.getPokemon().subscribe(x => {
-      this.artists = x.results;
-      for (let artist of this.artists) {
-        _apiSvc.getPokemonDetails(artist.url).subscribe(y => {
-          this.pokemon = this.pokemon.concat(y.sprites);
-          console.log(y.sprites);
-        });
-      }
+    
+    for(var _i = 0; _i < this.numLoaded; _i++) {
+      _apiSvc.getPokemonNew(_i+1).subscribe(x => {
+      this.pokeName = x.pokemon.name;
+      this.artists[x.id] = x;
+      
+      
+      //console.log(this.artists);
       //this.attributes = x.artists['@attr'];
      });
+     console.log(this.pokeName);
+      console.log(this.artists);
+     
+     /*
+     this.artists = this.artists.sort((a,b) =>{
+      console.log(a,b);
+      if(a.id < b.id){
+        return -1;
+      }
+      else if(a.id > b.id){
+        return 1;
+      }
+      else{
+        return 0;
+      }
+    });
+    */
+    }
+    //console.log(this.artists);
+    
+
+    
+
   }
 
 
@@ -45,4 +70,11 @@ export class ArtistsComponent {
   }
 */
 
+/*
+ngOnInit(){
+  console.log(this.artists);
+  
 }
+*/
+}
+

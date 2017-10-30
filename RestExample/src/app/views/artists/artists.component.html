@@ -5,9 +5,11 @@
   <thead>
   <th>Number</th><th>Pokemon</th><th>Sprite</th>
 </thead>
+
   <tr *ngFor="let artist of artists; let i=index" (click)='showDetail(i,artist)' class="clickable" >
+    
     <td>
-  {{i+1}}</td><td> {{artist.name}}</td><td> <img src = {{pokemon[i].front_default}} /> </td>
+  {{i+1}}</td><td> <!--{{artist.name}} --></td><td>{{artist.id}}</td>
   </tr>
 </table>
 </div>

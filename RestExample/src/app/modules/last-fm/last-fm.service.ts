@@ -16,7 +16,7 @@ export class LastFmService {
   }
 
   getPokemon = () => this.http.get(
-    this.baseUri + "pokemon/" + "?limit=100",
+    this.baseUri + "pokemon-form/" + "?limit=3",
       { headers: this.headers }).map(x => {
         console.log(x.json());
         return x.json();
@@ -25,7 +25,7 @@ export class LastFmService {
 
 
       getPokemonDetails = (link: string) => this.http.get(
-        link + "?limit=100",
+        link + "?limit=3",
           { headers: this.headers }).map(x => {
             console.log(x.json());
             return x.json();
@@ -33,12 +33,20 @@ export class LastFmService {
           })
       
     getBerries = () => this.http.get(
-      this.baseUri + "berry/" + "?limit=1000",
+      this.baseUri + "berry/" + "?limit=3",
         { headers: this.headers }).map(x => {
           console.log(x.json());
           return x.json();
             
         })
+
+    getPokemonNew = (dexNum: number) => this.http.get(
+      this.baseUri + "pokemon-form/" + dexNum,
+      { headers: this.headers }).map(x => {
+        console.log(x.json());
+        return x.json();
+          
+      })
         
 
 /*
