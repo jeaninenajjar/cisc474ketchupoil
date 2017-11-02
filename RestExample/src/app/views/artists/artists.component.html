@@ -9,7 +9,7 @@
   <tr *ngFor="let artist of artists; let i=index" (click)='showDetail(i,artist)' class="clickable" >
     
     <td>
-  {{i+1}}</td><td> <!--{{artist.name}} --></td><td>{{artist.id}}</td>
+  {{i+1}}</td><td> {{artist.name}}</td><td><img src = "{{pokemons[i].front_default}}"/></td>
   </tr>
 </table>
 </div>

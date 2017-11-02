@@ -16,7 +16,7 @@ export class LastFmService {
   }
 
   getPokemon = () => this.http.get(
-    this.baseUri + "pokemon-form/" + "?limit=3",
+    this.baseUri + "pokemon/" + "?limit=5",
       { headers: this.headers }).map(x => {
         console.log(x.json());
         return x.json();
@@ -25,7 +25,7 @@ export class LastFmService {
 
 
       getPokemonDetails = (link: string) => this.http.get(
-        link + "?limit=3",
+        link + "?limit=5",
           { headers: this.headers }).map(x => {
             console.log(x.json());
             return x.json();

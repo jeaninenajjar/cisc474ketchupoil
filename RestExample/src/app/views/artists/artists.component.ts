@@ -8,73 +8,114 @@ import {ArtistPopupComponent} from './artist-popup/artist-popup.component';
   templateUrl: './artists.component.html',
   styleUrls: ['./artists.component.css']
 })
-   
+
 
 export class ArtistsComponent {
-  numLoaded: number = 100;
-  artists = Array<number>();
-  pokeName = String;
-  pokemon: any[] = [ ];
+  artists: any[] = [ ];
+  pokemon: any;
+  pokemons: any[] = new Array(0);
+  _apiSVC: LastFmService;
+
+  
   //attributes: any[] = [ ];
   constructor(private _apiSvc: LastFmService, private _dialogService: DialogService) {
+    console.log(this.pokemons.length);
+    this._apiSVC = _apiSvc;
     
-    for(var _i = 0; _i < this.numLoaded; _i++) {
-      _apiSvc.getPokemonNew(_i+1).subscribe(x => {
-      this.pokeName = x.pokemon.name;
-      this.artists[x.id] = x;
-      
-      
-      //console.log(this.artists);
-      //this.attributes = x.artists['@attr'];
-     });
-     console.log(this.pokeName);
-      console.log(this.artists);
-     
-     /*
-     this.artists = this.artists.sort((a,b) =>{
-      console.log(a,b);
-      if(a.id < b.id){
-        return -1;
-      }
-      else if(a.id > b.id){
-        return 1;
-      }
-      else{
-        return 0;
-      }
-    });
-    */
-    }
-    //console.log(this.artists);
-    
+    _apiSvc.getPokemon().subscribe(x => {
+      this.artists = x.results;
 
-    
+      if(this.artists == x.results) {
+        this.makePokemons(0);
+      }
+
+        //return temp;
+/*         for(let artist of this.artists) {
+          _apiSvc.getPokemonDetails(artist.url).subscribe( y => {
+              if(y.id == (this.pokemons.length + 1 )) {
+                this.pokemons.push(y.sprites); 
+              }
+
+              
+          });
+        } */
+      });
+
+
+      console.log(this.pokemons);
+/*       this.pokemon = this.artists.map(function(z) {
+        _apiSvc.getPokemonDetails(z.url).subscribe(y => {
+           this.temporary = y.sprites;
+        });
+        return this.temporary;
+      }); */
+/*       for (var i = 0; i < this.artists.length; i++) {
+        _apiSvc.getPokemonDetails(this.artists[i].url).subscribe(y => {
+          this.artists[i] = y.sprites;
+          this.pokemon.push(y.sprites);
+          console.log(y.sprites);
+        });
+      } */
+      //this.attributes = x.artists['@attr'];
 
   }
 
 
-  /*
-  showDetail(index, artist) {
-    console.log(index);
-    console.log(artist.name);
+  makePokemons(index) {
+    if (index == this.artists.length) {
+      return;
+    }
+    this._apiSVC.getPokemonDetails(this.artists[index].url).subscribe( y => {
+      this.pokemons.push(y.sprites);
+      if(this.pokemons.length == y.id) {
+        this.makePokemons(index+1);
+      }
+    });
+  }
+
+  finish(index, artist) {
+    console.log(this._apiSVC);
+    console.log(this.pokemon);
+    
+    var types = '';
+    for (var _i = 0; _i < this.pokemon.types.length; _i++) {
+      types += this.pokemon.types[_i].type.name;
+      console.log(this.pokemon.types[_i]);
+      if (_i != (this.pokemon.types.length-1)) {
+        types += ' and ';
+      }
+    }
+
+
     const disposable =  this._dialogService.addDialog(ArtistPopupComponent,  {
                       title: artist.name,
-                      message: 'Playcount: ' + artist.playcount,
+                      message: 'I am a ' + types + ' type', 
                       linkUrl: artist.url,
-                      imageUrl: artist.image[2]['#text']})
+                      imageUrl: this.pokemon.sprites.front_default})
                       .subscribe((isConfirmed) => {
                       });
                   setTimeout(() => {
                       disposable.unsubscribe();
                   }, 10000);
   }
-*/
-
-/*
-ngOnInit(){
-  console.log(this.artists);
   
-}
-*/
-}
+  showDetail(index, artist) {
+    console.log(index);
+    console.log(artist.name);
 
+    this._apiSVC.getPokemonDetails(artist.url).subscribe(x => {
+      this.pokemon = x;
+      if (this.pokemon== x) {
+        this.finish(index, artist);
+      }
+
+    });
+
+
+  }
+
+
+
+
+
+}
