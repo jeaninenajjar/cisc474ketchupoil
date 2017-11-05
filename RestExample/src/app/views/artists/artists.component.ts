@@ -65,7 +65,7 @@ export class ArtistsComponent {
     if (index == this.artists.length) {
       return;
     }
-    this._apiSVC.getPokemonDetails(this.artists[index].url).subscribe( y => {
+    this._apiSVC.getPokemonForms(this.artists[index].url).subscribe( y => {
       this.pokemons.push(y.sprites);
       if(this.pokemons.length == y.id) {
         this.makePokemons(index+1);
