@@ -25,8 +25,14 @@ export class ArtistsComponent {
     _apiSvc.getPokemon().subscribe(x => {
       this.artists = x.results;
 
+      
+
       if(this.artists == x.results) {
-        this.makePokemons(0);
+        var x: any;
+        for (var _i = 0; _i < this.artists.length; _i++) {
+          x = _i+1;
+          this.artists[_i].sprites = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + x + ".png";
+        }
       }
 
         //return temp;
