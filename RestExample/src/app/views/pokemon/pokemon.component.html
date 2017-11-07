@@ -6,10 +6,10 @@
   <th>Number</th><th>Pokemon</th><th>Sprite</th>
 </thead>
 
-  <tr *ngFor="let artist of artists; let i=index" (click)='showDetail(i,artist)' class="clickable" >
+  <tr *ngFor="let poke of pokemon; let i=index" (click)='showDetail(i,poke)' class="clickable" >
     
     <td>
-  {{i+1}}</td><td> {{artist.name}}</td><td><img src = "{{artist.sprites}}"/></td>
+  {{i+1}}</td><td> {{poke.name}}</td><td><img src = "{{poke.sprites}}"/></td>
   </tr>
 </table>
 </div>

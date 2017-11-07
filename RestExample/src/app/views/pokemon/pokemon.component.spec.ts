@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArtistPopupComponent } from './artist-popup.component';
+import { PokemonComponent } from './pokemon.component';
 
-describe('ArtistPopupComponent', () => {
-  let component: ArtistPopupComponent;
-  let fixture: ComponentFixture<ArtistPopupComponent>;
+describe('PokemonComponent', () => {
+  let component: PokemonComponent;
+  let fixture: ComponentFixture<PokemonComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArtistPopupComponent ]
+      declarations: [ PokemonComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ArtistPopupComponent);
+    fixture = TestBed.createComponent(PokemonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,21 @@
+<div>
+  <h2>Items!</h2>
+  <div class="container-fluid">
+    <table class="table table-responsive">
+      <thead>
+        <th>Number</th><th>Name</th><th>Sprite</th>
+    </thead>
+    <tbody>
+    <template ngFor let-item [ngForOf]="items" let-index="index">
+    <tr  (click)='showDetail(index,item)' class="clickable" >
+      <td>
+    {{index+1}}</td><td> {{item.name}}</td><td><img src = "{{item.sprite}}"/></td>
+    </tr>
+ 
+  </template>
+</tbody>
+</table>
+  <br/>&nbsp;
+</div>
+  </div>
+  

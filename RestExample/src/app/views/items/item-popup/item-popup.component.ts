@@ -8,12 +8,12 @@ export interface ConfirmModel {
   linkUrl: string;
 }
 @Component({
-    selector: 'app-artistpopup',
-    templateUrl: './artist-popup.component.html',
-    styleUrls: ['./artist-popup.component.css']
+    selector: 'app-itempopup',
+    templateUrl: './item-popup.component.html',
+    styleUrls: ['./item-popup.component.css']
 
 })
-export class ArtistPopupComponent extends DialogComponent<ConfirmModel,  boolean> implements ConfirmModel {
+export class ItemPopupComponent extends DialogComponent<ConfirmModel,  boolean> implements ConfirmModel {
   title:  string;
   message:  string;
   imageUrl: string;

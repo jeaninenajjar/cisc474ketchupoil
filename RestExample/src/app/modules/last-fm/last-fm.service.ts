@@ -32,47 +32,22 @@ export class LastFmService {
             
           })
 
-      getPokemonForms = (link: string) => this.http.get(
-            link.replace("pokemon", "pokemon-form") + "?limit=100",
+          getItemDetails = (link: string) => this.http.get(
+            link + "?limit=100",
               { headers: this.headers }).map(x => {
                 console.log(x.json());
                 return x.json();
                 
               })
       
-    getBerries = () => this.http.get(
-      this.baseUri + "berry/" + "?limit=3",
+    getItems = () => this.http.get(
+      this.baseUri + "item/" + "?limit=100",
         { headers: this.headers }).map(x => {
           console.log(x.json());
           return x.json();
             
         })
-
-    getPokemonNew = (dexNum: number) => this.http.get(
-      this.baseUri + "pokemon-form/" + dexNum,
-      { headers: this.headers }).map(x => {
-        console.log(x.json());
-        return x.json();
-          
-      })
         
 
-/*
-  getArtists = (page: number) => this.http.get(
-    this.baseUri + '/?method=chart.gettopartists&api_key=119e39cb330a0f59c3f1616150e3e8f0&format=json&limit=' +
-      this.limit + '&page=' + page,
-      { headers: this.headers }).map(x => {
-        console.log(x.json());
-        return x.json();
-      })
-
-  getTracks = (page: number) => this.http.get(
-    this.baseUri + '/?method=chart.getTopTracks&api_key=119e39cb330a0f59c3f1616150e3e8f0&format=json&limit=' +
-    this.limit + '&page=' + page,
-    { headers: this.headers }).map(x => {
-      console.log(x.json());
-      return x.json();
-    })
-*/
 
 }

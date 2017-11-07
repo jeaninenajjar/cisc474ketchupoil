@@ -1,5 +1,5 @@
-import { TracksComponent } from './views/tracks/tracks.component';
-import { ArtistsComponent } from './views/artists/artists.component';
+import { ItemsComponent } from './views/items/items.component';
+import { PokemonComponent } from './views/pokemon/pokemon.component';
 import { LastFmModule } from './modules/last-fm/last-fm.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -7,15 +7,17 @@ import {FormsModule} from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BootstrapModalModule} from 'ng2-bootstrap-modal';
-import { ArtistPopupComponent } from './views/artists/artist-popup/artist-popup.component';
+import { PokemonPopupComponent } from './views/pokemon/pokemon-popup/pokemon-popup.component';
+import { ItemPopupComponent } from './views/items/item-popup/item-popup.component';
 import {CollapseModule} from 'ng2-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArtistsComponent,
-    ArtistPopupComponent,
-    TracksComponent
+    PokemonComponent,
+    PokemonPopupComponent,
+    ItemsComponent,
+    ItemPopupComponent
   ],
   imports: [
     LastFmModule,
@@ -25,7 +27,7 @@ import {CollapseModule} from 'ng2-bootstrap';
     AppRoutingModule,
     CollapseModule.forRoot()
   ],
-  entryComponents: [ArtistPopupComponent],
+  entryComponents: [PokemonPopupComponent, ItemPopupComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,13 +1,13 @@
-import { TracksComponent } from './views/tracks/tracks.component';
-import { ArtistsComponent } from './views/artists/artists.component';
+import { ItemsComponent } from './views/items/items.component';
+import { PokemonComponent } from './views/pokemon/pokemon.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'artist', pathMatch: 'full'},
+  {path: '', redirectTo: 'pokemon', pathMatch: 'full'},
 //  {path: 'last', loadChildren:'./modules/last-fm/last-fm.module#LastFmModule'},
-  {path: 'artist', component: ArtistsComponent },
-  {path: 'track', component: TracksComponent}
+  {path: 'pokemon', component: PokemonComponent },
+  {path: 'item', component: ItemsComponent}
 ];
 
 @NgModule({
