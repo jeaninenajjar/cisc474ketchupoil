@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class LastFmService {
   baseUri: string;
-  limit = 100;
+  limit = 151;
    private headers = new Headers({
     'Content-Type': 'application/json'
   });
@@ -16,7 +16,7 @@ export class LastFmService {
   }
 
   getPokemon = () => this.http.get(
-    this.baseUri + "pokemon/" + "?limit=100",
+    this.baseUri + "pokemon/" + "?limit=151",
       { headers: this.headers }).map(x => {
         console.log(x.json());
         return x.json();
@@ -25,7 +25,7 @@ export class LastFmService {
 
 
       getPokemonDetails = (link: string) => this.http.get(
-        link + "?limit=100",
+        link + "?limit=151",
           { headers: this.headers }).map(x => {
             console.log(x.json());
             return x.json();
