@@ -1,3 +1,14 @@
+
+.background{
+    
+        background-image: url("../../Pokebackground.png");
+        background-position: center;
+        min-height: 500 px; 
+        background-attachment: fixed;
+        background-repeat: repeat;
+        background-size: cover;
+    }
+
 table th{
     text-align: center;
     font-size: large;
